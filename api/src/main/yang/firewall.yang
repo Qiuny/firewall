@@ -2,8 +2,45 @@ module firewall {
     yang-version 1;
     namespace "urn:opendaylight:params:xml:ns:yang:firewall";
     prefix "firewall";
+    organization "Qiuny";
 
     revision "2015-01-05" {
         description "Initial revision of firewall model";
     }
+
+    rpc receive {
+        input {
+            leaf name {
+                type string;
+            }
+        }
+        output {
+            leaf result {
+                type string;
+            }
+        }
+    }
+
+    rpc request {
+        input {
+            leaf content {
+                type string;
+            }
+            leaf id {
+                type uint32;
+            }
+        }
+        output {
+            leaf response {
+                type uint32;
+            }
+        }
+    }
+
+    notification sent {
+        leaf message {
+            type string;
+        }
+    }
+
 }

@@ -59,6 +59,29 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
           <skip>true</skip>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Export-Package>
+              org.apache.*,
+              org.springframework.*
+            </Export-Package>
+            <Import-Package>
+              *;resolution:=optional
+            </Import-Package>
+            <Embed-Dependency>
+              httpclient;type=!pom;inline=false,
+              httpcore;type=!pom;inline=false,
+              spring-web;type=!pom;inline=false
+            </Embed-Dependency>
+            <Embed-Transitive>true</Embed-Transitive>
+            <Include-Resource>{maven-resources}</Include-Resource>
+          </instructions>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
