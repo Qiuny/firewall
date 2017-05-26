@@ -7,6 +7,7 @@
  */
 package org.controller.firewall.impl;
 
+import io.netty.handler.codec.http.HttpUtil;
 import org.opendaylight.controller.md.sal.binding.api.DataBroker;
 import org.opendaylight.controller.sal.binding.api.BindingAwareBroker.ProviderContext;
 import org.opendaylight.controller.sal.binding.api.BindingAwareBroker.RpcRegistration;
@@ -15,6 +16,9 @@ import org.opendaylight.controller.sal.binding.api.NotificationProviderService;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.firewall.rev150105.FirewallService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 public class FirewallProvider implements BindingAwareProvider, AutoCloseable {
 
@@ -44,7 +48,42 @@ public class FirewallProvider implements BindingAwareProvider, AutoCloseable {
         LOG.info("FirewallProvider Session Initiated");
         firewallService = session.addRpcImplementation(FirewallService.class, new FirewallImpl());
         notificationProviderService = session.getSALService(NotificationProviderService.class);
-//        notificationProviderService.publish();
+
+    }
+
+    public String buildInput_transmit_packet(){
+        byte[] rawPacket=getRawByte(xxx);
+        String nodeid="openflow:11";
+        String egress="openflow:11:2";
+        Map<String,Object> input = new TreeMap<String,Object>();
+        input.put("connection-cookie", 123456);
+
+        String strNode = "/opendaylight-inventory:nodes/opendaylight-inventory:node[opendaylight-inventory:id='"+nodeid+"']";
+        input.put("node",strNode);
+        input.put("egress",strNode + "/opendaylight-inventory:node-connector[opendaylight-inventory:id='"+ egress+"']");
+
+        //payload
+        input.put("payload", Base64Util.encode(rawPacket));
+
+        Map<String,Object> packet = new TreeMap<String,Object>();
+        packet.put("input", (Object)input);
+        return Json.serialize(packet);
+    }
+
+    public void doTransmitPacket() throws Exception{
+        String strUrl = "http://<IP>:8181/restconf/operations/packet-processing:transmit-packet";
+
+        HttpUtil http = new HttpUtil(strUrl);
+        http.addBasicAuth("admin","admin");
+        http.addHeaderField("Accept","application/json");
+        http.addHeaderField("Content-type","application/json");
+
+        String strEntity = buildInput_transmit_packet();
+
+        System.out.println(strEntity);
+
+        http.addEntity(strEntity);
+        http.sendRequest(HttpUtil.Method.POST);
     }
 
     /**

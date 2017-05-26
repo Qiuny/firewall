@@ -20,4 +20,13 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
   <artifactId>firewall-api</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>model-inventory</groupId>
+      <artifactId>inventory</artifactId>
+      <version>0.9.0-Boron</version>
+    </dependency>
+  </dependencies>
+
 </project>

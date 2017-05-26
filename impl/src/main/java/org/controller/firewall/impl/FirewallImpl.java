@@ -37,7 +37,12 @@ public class FirewallImpl implements FirewallService {
     public Future<RpcResult<RequestOutput>> request(RequestInput input) {
         LOG.info("request:", input);
         RequestOutputBuilder requestBuilder = new RequestOutputBuilder();
+        NodeConnectRef egress = input.getEgress();
+        NodeRef nod = input.getNode();
+        byte[] payload = input.getRawpacket();
+        packetOut(node, egress, payload);
         requestBuilder.setResponse(Long.valueOf("response:" + input.getContent() + ":" + input.getId()));
         return RpcResultBuilder.success(requestBuilder.build()).buildFuture();
     }
+
 }

@@ -46,5 +46,14 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
           <artifactId>sal-broker-impl</artifactId>
           <version>1.4.0-Boron</version>
       </dependency>
+    <dependency>
+      <groupId>openflowplugin-model</groupId>
+      <artifactId>model-flow-service</artifactId>
+      <version>1.4.0-Boron</version>
+    </dependency>
+      <dependency>
+          <groupId>io.netty</groupId>
+          <artifactId>netty-codec-http</artifactId>
+      </dependency>
   </dependencies>
 </project>

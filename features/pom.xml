@@ -58,6 +58,11 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>openflowplugin-model</groupId>
+        <artifactId>model-flow-service</artifactId>
+        <version>1.4.0-Boron</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

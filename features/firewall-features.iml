@@ -79,12 +79,11 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.aries.proxy:org.apache.aries.proxy.api:1.0.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.opendaylight.controller:config-manager-facade-xml:0.5.0-Boron" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.controller:sal-core-api:1.4.0-Boron" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-buffer:4.0.37.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-common:4.0.37.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport:4.0.37.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec:4.0.37.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec-http:4.0.37.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-handler:4.0.37.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.0.37.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.0.37.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.0.37.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.0.37.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.0.37.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.0.37.Final" level="project" />
     <orderEntry type="library" name="Maven: com.lmax:disruptor:3.3.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
@@ -296,8 +295,11 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.opendaylight.dlux:dlux.yangvisualizer:0.4.0-Boron" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.opendaylight.dlux:dlux.yangvisualizer.resources:0.4.0-Boron" level="project" />
     <orderEntry type="module" module-name="firewall-impl" />
+    <orderEntry type="library" name="Maven: openflowplugin-model:model-flow-service:1.4.0-Boron" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-http:4.0.37.Final" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.controller:config-api:0.5.0-Boron" level="project" />
     <orderEntry type="module" module-name="firewall-api" />
+    <orderEntry type="library" name="Maven: model-inventory:inventory:0.9.0-Boron" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:yang-binding:0.9.0-Boron" level="project" />
     <orderEntry type="module" module-name="firewall-cli" />
     <orderEntry type="library" name="Maven: org.apache.karaf.shell:org.apache.karaf.shell.console:3.0.7" level="project" />
